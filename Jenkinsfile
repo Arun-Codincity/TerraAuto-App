@@ -3,8 +3,8 @@ pipeline {
 
     environment {
         // IDs of the credentials stored in Jenkins
-        AWS_CREDENTIALS_ID = 'AWS_CREDENTIALS'
-        GIT_CREDENTIALS_ID = 'GIT_SERVER_CREDENTIALS'
+        AWS_CREDENTIALS_ID = 'aws-credentials-id'
+        GIT_CREDENTIALS_ID = 'github-credentials-id'
         // AWS credentials will be provided by the user at runtime
         AWS_ACCESS_KEY_ID = ''
         AWS_SECRET_ACCESS_KEY = ''
@@ -13,7 +13,7 @@ pipeline {
     stages {
         stage('Checkout') {
             steps {
-                git credentialsId: "${GIT_CREDENTIALS_ID}", url: 'https://your-repo-url.git', branch: 'main'
+                git credentialsId: "${GIT_CREDENTIALS_ID}", url: 'https://github.com/Arun-Codincity/TerraAuto-App.git', branch: 'main'
             }
         }
 
@@ -61,7 +61,7 @@ pipeline {
                     '''
 
                     // Store the repository URL to display later
-                    env.GENERATED_REPO_URL = "https://github.com/your-org/${REPO_NAME}"
+                    env.GENERATED_REPO_URL="https://github.com/Arun-Codincity/Terraform_Modules"
                 }
             }
         }
